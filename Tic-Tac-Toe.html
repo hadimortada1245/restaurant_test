@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <style>
+            form{
+                text-align: center;
+            }
+            input{
+                width: 80px;
+                height: 80px;
+                font-size: 7em;
+                text-align: center;
+                padding-bottom: 19px;
+            }
+            div{
+                width: fit-content;
+                margin-left: 43.8%;
+                font-size: x-large;}
+               button{
+                width: 7%;
+                height: 6%;
+                font-size: larger;
+            }
+            table{
+                margin-left: 43.3%;
+            }
+            button:hover{
+                color: red;
+            }
+            #M{
+                margin-left: 42.4%;
+                font-size: xx-large;
+                color: orange;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+        <body>
+            <div id="M">
+                TIC TAC TOE GAME
+            </div>
+            <br/>
+            <div id="H">
+            </div>
+            <br/>
+            <form>
+            <table>
+                <tr id="0">
+                    <td><input type="text" onclick="valider(this)" onblur="hadi()"></td>
+                    <td><input type="text" onclick="valider(this)" onblur="hadi()"></td>
+                    <td><input type="text" onclick="valider(this)" onblur="hadi()"></td>
+                </tr>
+                <tr id="1">
+                    <td><input type="text" onclick="valider(this)" onblur="hadi()"></td>
+                    <td><input type="text" onclick="valider(this)" onblur="hadi()"></td>
+                    <td><input type="text" onclick="valider(this)" onblur="hadi()"></td>
+                </tr>
+                <tr id="2">
+                    <td><input type="text" onclick="valider(this)" onblur="hadi()"></td>
+                    <td><input type="text" onclick="valider(this)" onblur="hadi()"></td>
+                    <td><input type="text" onclick="valider(this)" onblur="hadi()"></td>
+                </tr>
+            </table>
+            <br/>
+            <button type="reset" onclick="playagain()">REMATCH</button>
+        </form>
+            <script>
+                var input1=document.querySelectorAll("td input");
+                  var compteur=0;
+                function hadi(){
+                for(var i=0;i<input1.length;i++){
+                   if(input1[0].value==input1[1].value && input1[2].value==input1[1].value &&input1[0].value!="" ){
+                    input1[0].style.backgroundColor="green";
+                    input1[1].style.backgroundColor="green";
+                    input1[2].style.backgroundColor="green";
+                    return true;
+                   }
+                   else
+                   if(input1[3].value==input1[4].value &&input1[3].value==input1[5].value && input1[3].value!=""){
+                    input1[3].style.backgroundColor="green";
+                    input1[4].style.backgroundColor="green";
+                    input1[5].style.backgroundColor="green";
+                    return true;
+                   }
+                   else
+                   if(input1[6].value==input1[7].value &&input1[7].value==input1[8].value &&input1[6].value!=""){
+                    input1[6].style.backgroundColor="green";
+                    input1[7].style.backgroundColor="green";
+                    input1[8].style.backgroundColor="green";
+                    return true;
+                   }
+                   else
+                   if(input1[0].value==input1[3].value &&input1[3].value==input1[6].value && input1[0].value!=""){
+                    input1[6].style.backgroundColor="green";
+                    input1[0].style.backgroundColor="green";
+                    input1[3].style.backgroundColor="green";
+                    return true;
+                   }
+                   else
+                   if(input1[1].value==input1[7].value &&input1[7].value==input1[4].value && input1[1].value!=""){
+                    input1[1].style.backgroundColor="green";
+                    input1[7].style.backgroundColor="green";
+                    input1[4].style.backgroundColor="green";
+                    return true;
+                   }
+                   else
+                   if(input1[2].value==input1[5].value &&input1[5].value==input1[8].value && input1[2].value!=""){
+                    input1[2].style.backgroundColor="green";
+                    input1[5].style.backgroundColor="green";
+                    input1[8].style.backgroundColor="green";
+                    return true;
+                   }
+                   else
+                   if(input1[0].value==input1[4].value &&input1[4].value==input1[8].value && input1[0].value!=""){
+                    input1[0].style.backgroundColor="green";
+                    input1[4].style.backgroundColor="green";
+                    input1[8].style.backgroundColor="green";
+                    return true;
+                   }
+                   else
+                   if(input1[2].value==input1[4].value &&input1[4].value==input1[6].value && input1[2].value!=""){
+                    input1[6].style.backgroundColor="green";
+                    input1[2].style.backgroundColor="green";
+                    input1[4].style.backgroundColor="green";
+                    return true;
+                   }
+                }
+            }
+            var z=0;
+            function valider(elt){
+                if(z==1 && elt.value==""){
+                    elt.value="";
+                }
+                else{
+                    if(elt.value==""){
+                if(compteur%2==0){
+                elt.value="x";
+                }
+                else{
+                    elt.value="o";
+                }
+                compteur++;
+                if(hadi()){
+                    mhmd();
+                }
+            }}
+            }
+            function mhmd(){
+                z=1;
+                H.style.border="3px solid green";
+                H.innerHTML="WE HAVE A WINNER";
+            }
+            function playagain(){
+                for(var i=0;i<input1.length;i++){
+                input1[i].style.backgroundColor="white";
+                H.innerHTML="";
+                z=0;
+            }
+        }
+            </script>
+        </body>
+</html>
